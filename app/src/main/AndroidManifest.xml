@@ -2,14 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.seroo.androidproblem">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
+        android:name=".SerooApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:launchMode="singleInstance">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,9 +22,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".B_Activity"/>
-        <activity
-            android:name=".C_Activity">
+        <activity android:name=".B_Activity" />
+        <activity android:name=".C_Activity">
             <!--<intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -31,7 +35,10 @@
                     android:scheme="seroo" />
             </intent-filter>-->
         </activity>
-        <activity android:name=".D_Activity"/>
+        <activity android:name=".D_Activity" />
+
+        <service android:name=".ForegroundService" />
+        <receiver android:name=".ButtonReceiver" />
     </application>
 
 </manifest>
